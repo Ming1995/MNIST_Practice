@@ -229,7 +229,7 @@ class FashionMNISTModelV3(nn.Module):
         self.layer6 = nn.Sequential(
             nn.MaxPool2d(kernel_size=2,stride=2)
         )
-        self.layer7 = nn.Flatten()
+        self.layer7 = nn.AdaptiveAvgPool2d((1,1))
         self.layer8 = nn.Sequential(
             nn.Linear(128*7*7,256),  # 將原本的64改成256增加神經元數量
             nn.ReLU(),
